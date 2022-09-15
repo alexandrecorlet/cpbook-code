@@ -8,11 +8,9 @@
 #include <algorithm>
 using namespace std;
 
-
 double price(int p, int a, int b, int c, int d, int k) {
     return p * (sin(a * k + b) + cos(c * k + d) + 2.0); 
 }
-
 
 int main() {
     int p, a, b, c, d, n;
