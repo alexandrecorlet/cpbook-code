@@ -102,6 +102,39 @@ int main() {
     else
         printf("Element not found in myvector.\n");
 
+    /*
+     * find_if(InputIterator first, InputIterator last, UnaryPredicate pred)
+     *
+     * - Find first element in range [first, last) for which pred returns true.
+     * - Returns an iterator to the first element in range [first, last) for which
+     *  pred returns true, otherwise returns last.
+     */
+
+    vector<int> myvector2;
+    myvector2.push_back(2);
+    myvector2.push_back(10);
+    myvector2.push_back(7);
+    myvector2.push_back(8);
+    myvector2.push_back(9);
+    
+    // find_if example
+    it = find_if(myvector2.begin(), myvector2.end(), [](int i){return i % 2;});
+    if (it != myvector2.end())
+        printf("The first odd value is %d.\n\n", *it);
+
+    /*
+     * find_if_not(InputIterator first, InputIterator last, UnaryPredicate pred)
+     *
+     * - Find first element in range [first, last) for which pred returns false.
+     * - Returns an iterator to the first element in range [first, last) for
+     *  which pred returns false, otherwise returns last.
+     */
+    
+    // find_if_not example
+    it = find_if_not(myvector2.begin(), myvector2.end(), [](int i){return i <= 7;});
+    if (it != myvector2.end())
+        printf("The first element > 7 is %d.\n\n", *it);
+
     return 0;
 
 }
