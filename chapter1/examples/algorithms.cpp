@@ -134,7 +134,32 @@ int main() {
     it = find_if_not(myvector2.begin(), myvector2.end(), [](int i){return i <= 7;});
     if (it != myvector2.end())
         printf("The first element > 7 is %d.\n\n", *it);
-
+    
+    /*
+     * 1) find_end(FowardIterator first1, FowardIterator last1, FowardIterator first2, FowardIterator last2)
+     * 2) find_end(FowardIterator first1, FowardIterator last1, FowardIterator first2, FowardIterator last2, BinaryPredicate pred)
+     *  
+     *
+     *  - Find last subsequence in range.
+     *  - Searches the range [first1, last1) for the last ocurrence of the sequence defined by [first2, last2),
+     *  and returns an iterator to its first element, or last1 if no ocurrences are found.
+     */
+    
+    // find_end example
+    int myints3[] = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
+    vector<int> myvector3(myints3, myints3+10);
+    int subsequence1[] = {1, 2, 3};
+    // using default comparison == 
+    vector<int>::iterator it2;
+    it2 = find_end(myvector3.begin(), myvector3.end(), subsequence1, subsequence1+3);
+    if (it2 != myvector3.end())
+        printf("subsequence1 last found at position %ld\n", it2 - myvector3.begin());
+    //using predicate comparison:
+    it2 = find_end(myvector3.begin(), myvector3.end(), subsequence1, subsequence1+3, [](int i, int j){return i == j;});
+    if (it2 != myvector3.end())
+        printf("subsequence1 last found at position %ld\n", it2 - myvector3.begin());
+    printf("\n");
+    
     return 0;
 
 }
