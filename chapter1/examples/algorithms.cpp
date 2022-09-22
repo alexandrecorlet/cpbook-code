@@ -159,7 +159,28 @@ int main() {
     if (it2 != myvector3.end())
         printf("subsequence1 last found at position %ld\n", it2 - myvector3.begin());
     printf("\n");
+
+    /*
+     * find_first_of(FowardIterator first1, FowardIterator last1, FowardIterator first2, FowardIterator last2)
+     * find_first_of(FowardIterator first1, FowardIterator last1, FowardIterator first2, FowardIterator last2, BinaryPredicate pred)
+     *
+     *  - Returns an iterator to the first element in the range [first1, last1) that matches any of the elements
+     *  in the range [first2, last2). If no such element is found, the function returns f1.
+     */
+    // find_first_of example
+    int myints4[] = {1, 2, 4, 5, 6};
+    vector<int> myvector4(myints4, myints4+5);
+    int subsequence2[] = {0, 5, 6};
+    // using default comparison ==
+    vector<int>::iterator it3;
+    it3 = find_first_of(myvector4.begin(), myvector4.end(), subsequence2, subsequence2+3);
+    if (it3 != myvector4.end())
+        printf("First element to match found at position %ld.\n", it3 - myvector4.begin());
+    // using pred comparison
+    it3 = find_first_of(myvector4.begin(), myvector4.end(), subsequence2, subsequence2+3, [](int x, int y){return x == y;});
+    if (it3 != myvector4.end())
+        printf("First element to match found at position %ld.\n", it3 - myvector4.begin());
+    printf("\n");
     
     return 0;
-
 }
