@@ -10,7 +10,6 @@
 int main() {
     int n;
     scanf("%d", &n);
-
     int a[] = {0, 0, 0, 0};
     while (n--) {
         char s[8];
