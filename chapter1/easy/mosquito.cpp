@@ -4,7 +4,6 @@
  */
 
 #include <cstdio>
-#include <vector>
 
 int main() {
     int m, p, l, e, r, s, n;
