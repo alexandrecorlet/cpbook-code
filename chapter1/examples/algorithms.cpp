@@ -181,6 +181,28 @@ int main() {
     if (it3 != myvector4.end())
         printf("First element to match found at position %ld.\n", it3 - myvector4.begin());
     printf("\n");
+
+    /*
+     * version 1) adjacent_find(FowardIterator first, FowardIterator last)
+     * version 2) adjacent_find(FowardIterator first, FowardIterator last, BinaryPredicate pred)
+     *
+     * Return value: an iterator to the first element of the first pair of matching consecutive
+     * elements in there range [first, last). If no such pair is found, returns last.
+     * Complexity: O(N)
+     */
+    // adjacent_find example
+    int myints5[] = {2, 3, 3, 4, 6, 10, 10, 11};
+    vector<int> myvector5(myints5, myints5 + 8);
+    vector<int>::iterator it4;
+    // using default comparison
+    it4 = adjacent_find(myvector5.begin(), myvector5.end());
+    if (it4 != myvector5.end())
+        printf("the first pair of repeated consecutive elements are: %d.\n", *it4);      // 3
+    // using predicate comparison
+    it4 = adjacent_find(++it4, myvector5.end(), [](int i, int j){return i == j;});
+    if (it4 != myvector5.end())
+        printf("the 2nd pair of repeated consecutive elements are: %d.\n", *it4);      // 10 
+    printf("\n");
     
     return 0;
 }
