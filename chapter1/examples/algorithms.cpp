@@ -203,6 +203,17 @@ int main() {
     if (it4 != myvector5.end())
         printf("the 2nd pair of repeated consecutive elements are: %d.\n", *it4);      // 10 
     printf("\n");
+
+    /*
+     * count(InputIterator first, InputIterator last, const &T val)
+     *
+     * - Count appearances of value in range [first, last).
+     * - Returns the number of elements in range [first, last) that compare == to val.
+     */
+    // count example
+    int myints6[] = {1, 2, 2, 2, 3, 4, 5};
+    int mycount = count(myints6, myints6+7, 2);
+    printf("2 appears %d times.\n\n", mycount);
     
     return 0;
 }
