@@ -214,6 +214,17 @@ int main() {
     int myints6[] = {1, 2, 2, 2, 3, 4, 5};
     int mycount = count(myints6, myints6+7, 2);
     printf("2 appears %d times.\n\n", mycount);
+
+    /*
+     * count_if(InputIterator first, InputIterator last, UnaryPredicate pred)
+     * 
+     *  - Return number of elements in range [first, last) for which pred is true. 
+     */ 
+    // count_if example
+    vector<int> myvector7;
+    for (int i = 1; i <= 10; ++i)
+        myvector7.push_back(i);
+    printf("myvector7 has %ld odd elements.\n\n", count_if(myvector7.begin(), myvector7.end(), [](int i){ return i & 1; }));
     
     return 0;
 }
